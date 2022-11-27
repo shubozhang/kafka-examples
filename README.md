@@ -1,5 +1,27 @@
 # kafka
 
+## Setup Kafka
+1. Download Kafka (*.tgz file): https://kafka.apache.org/downloads 
+2. Install Kafka:
+   - `tar -zxvf kafka_2.13-3.3.1.tgz`
+   - Edit `config/server.properties`. `broker.id`, `log-dirs`, `num.partitions`, etc.
+   - Edit `config/zookeeper.properties`.  `dataDirs`.
+3. Start Zookeeper `bin/zookeeper-server-start.sh`
+4. Start Kafka `bin/kafka-server-start.sh`
+
+## CLIs
+1. `kafka-topics`
+    - `kafka-topics.sh --bootstrap-server 127.0.0.1:9092 --topic first_topic --create`
+    - `kafka-topics.sh --bootstrap-server 127.0.0.1:9092 --describe first_topic`
+    - `kafka-topics.sh --bootstrap-server 127.0.0.1:9092 --topic second_topic --delete`
+    - `kafka-topics.sh --bootstrap-server 127.0.0.1:9092 --list`
+2. `kafka-console-producer.sh`
+   - `kafka-console-producer.sh --broker-list 127.0.0.1:9092 --topic first_topic`
+3. `kafka-console-consumer.sh`
+    - `kafka-console-consumer.sh --bootstrap-server 127.0.0.1:9092 --topic first_topic` : only consumes the new messages
+    - `kafka-console-consumer.sh --bootstrap-server 127.0.0.1:9092 --topic first_topic --from-beginning`
+4. `kafka-consumer-groups'
+
 ## Distributed Users
 
 * https://www.google.com
